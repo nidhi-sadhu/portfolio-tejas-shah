@@ -1,0 +1,21 @@
+<div class="app-header">
+    <app-header [currentSection]="currentSection" (navigate)="onNavigate($event)" />
+</div>
+<main class="main-content">
+    <section id="section-home" class="section" [class.active]="currentSection === 'home'"
+        [@fadeIn]="sectionStates.home">
+        <home />
+    </section>
+    <section id="section-about" class="section" [class.active]="currentSection === 'about'"
+        [@slideInLeft]="sectionStates.about">
+        <about />
+    </section>
+    <section id="section-skills" class="section" [class.active]="currentSection === 'skills'"
+        [@slideInLeft]="sectionStates.skills">
+        <skills />
+    </section>
+    <section id="section-cv" class="section" [class.active]="currentSection === 'cv'" [@slideInLeft]="sectionStates.cv">
+        <cv />
+    </section>
+</main>
+<app-footer />

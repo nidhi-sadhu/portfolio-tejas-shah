@@ -1,0 +1,41 @@
+<div class="page-container">
+  <div class="p-fieldset">
+    <div class="p-fieldset-legend">ABOUT</div>
+    <div class="about-page-container">
+      <div class="profile-photo-container">
+        <img src="/assets/images/img_avatar.JPG" alt="Tejas Shah" class="profile-photo" />
+        <div class="social-info">
+          @for (icon of socialIcons; track icon.key ) {
+          <i class="social-icon {{ icon.key }}" (click)="onSocialIcon(icon.value)"></i>
+          }
+        </div>
+      </div>
+      <div class="about-container">
+        <h4>Computational Chemist | Researcher</h4>
+        <p class="about-text">
+          I am a final-year Ph.D. candidate at the University of Texas at Dallas, specializing in molecular dynamics
+          simulations, force field development, and drug delivery systems. My research focuses on understanding
+          biomolecular interactions and designing polymeric carriers for therapeutic applications. I combine
+          computational modeling to explore mechanisms at the molecular level.
+        </p>
+        <p class="about-subtext">
+          My research focuses on using advanced computational tools to
+          understand complex molecular interactions, develop drug delivery
+          systems, and design functional polymers for real-world applications.
+        </p>
+        <hr />
+        <div class="user-details">
+          @for (item of userDetails; track item.key) {
+          <div class="user-detail-item">
+            <span class="key">{{ item.key }}</span>
+            <span class="value">
+              <span class="full-text">{{ item.value }}</span>
+              <span class="short-text">{{ item.value }}</span>
+            </span>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

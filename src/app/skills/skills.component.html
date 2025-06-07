@@ -1,0 +1,30 @@
+<div class="skill-container">
+    <div class="skill-page-container">
+        <div class="skill-page">
+            @for (event of skillEvents; track event.title; let i = $index) {
+            <div class="skill-category" [class]="getCategoryClass(event.title)"
+                [style.animation-delay]="(i * 0.1) + 's'">
+                <div class="skill-category-header">
+                    <div class="skill-icon">
+                        <i [class]="getCategoryIcon(event.title)"></i>
+                    </div>
+                    <h2 class="title">{{ event.title }}</h2>
+                </div>
+                @for (skill of event.skills; track skill.skillType) {
+                <div class="skill-group">
+                    <div class="skill-type">
+                        <i [class]="getSkillTypeIcon(skill.skillType)"></i>
+                        {{ skill.skillType }}
+                    </div>
+                    <div class="skill-tags">
+                        @for (skillValue of getSkillArray(skill.skillValues); track skillValue) {
+                        <div class="skill-tag">{{ skillValue }}</div>
+                        }
+                    </div>
+                </div>
+                }
+            </div>
+            }
+        </div>
+    </div>
+</div>

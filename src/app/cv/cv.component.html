@@ -1,0 +1,24 @@
+<p-steps [model]="items" [readonly]="false" [activeIndex]="activeIndex()"
+    (activeIndexChange)="onActiveIndexChange($event)" />
+
+<div class="cv-page-container">
+    <div class="cv-page">
+        @switch (currentPath()) {
+        @case (CvPaths.Education) {
+        <app-education />
+        }
+        @case (CvPaths.Experience) {
+        <app-experience />
+        }
+        @case (CvPaths.Award) {
+        <app-awards />
+        }
+        @case (CvPaths.Publication) {
+        <app-publication />
+        }
+        @case (CvPaths.Presentation) {
+        <app-presentation />
+        }
+        }
+    </div>
+</div>

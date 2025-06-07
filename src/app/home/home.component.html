@@ -1,0 +1,18 @@
+<div class="image-container">
+    <div class="orbital-ring"></div>
+    <div class="orbital-ring"></div>
+    <div class="orbital-ring"></div>
+    <div class="quantum-particle"></div>
+    <div class="text-overlay" [@mainPageText]="isContentVisible ? 'visible' : 'hidden'">
+        <div></div>
+        <div class="user-name">HI! I AM </div>
+        <div class="user-name-one"> Tejas Shah</div>
+        <div class="user-title">
+            I'm a Computational Chemist | Researcher!
+        </div>
+    </div>
+    <div class="download-pdf" [@downloadPdfUp]="isContentVisible ? 'visible' : 'hidden'">
+        <p-button class="pt-5" label="Info" severity="secondary" [raised]="true" label="Download Resume"
+            (click)="downloadResume()"></p-button>
+    </div>
+</div>

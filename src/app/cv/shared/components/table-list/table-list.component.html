@@ -1,0 +1,17 @@
+<div class="events-container">
+    <div class="events-list">
+        @for (event of events(); track event.title; let index = $index) {
+        <div class="event-item" [class.latest]="index === 0" (click)="openEventDetails(event?.link)">
+            <div class="event-number">{{ index + 1 }}</div>
+            <div class="event-content">
+                <div class="event-title-row">
+                    <h3 class="event-title" [innerHTML]="event.title"></h3>
+                    @if(event?.year !== null && event?.year !== undefined){
+                    <span class="event-year">{{ event.year }}</span>
+                    }
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

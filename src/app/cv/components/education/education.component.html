@@ -1,0 +1,44 @@
+<div class="education-page-container">
+    <div class="education-page">
+        <div class="timeline">
+            @for (event of educationEvents; track event.title; let i = $index) {
+            <div class="timeline-item" [style.animation-delay]="(i * 0.1) + 's'">
+                <div class="timeline-marker"></div>
+                <div class="education-card" [class.phd-highlight]="event.degreeLevel === 'Ph.D.'">
+                    <div class="degree-level">{{ event.degreeLevel }}</div>
+                    <div class="education-icon">
+                        <i [class]="getDegreeIcon(event.degreeLevel)"></i>
+                    </div>
+                    <div class="year">
+                        {{ event.year }}
+                        <span class="status-badge" [class]="getStatusClass(event.status)">
+                            {{ event.status }}
+                        </span>
+                    </div>
+                    <div class="title">{{ event.title }}</div>
+                    <div class="school-name">
+                        <i class="fas fa-university"></i>
+                        {{ event.schoolName }}
+                    </div>
+                    <div class="academic-details">
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <i class="fas fa-user-tie"></i>
+                                Advisor:
+                            </div>
+                            <div class="detail-value">{{ event.advisor }}</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">
+                                <i class="fas fa-flask"></i>
+                                Research:
+                            </div>
+                            <div class="detail-value">{{ event.researchInterest }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="experience-page-container">
+    <div class="experience-page">
+        <div class="timeline">
+            @for (event of experienceEvents; track event.title; let i = $index) {
+            <div class="timeline-item" [style.animation-delay]="(i * 0.1) + 's'">
+                <div class="timeline-marker"></div>
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <i [class]="getIconClass(event.type)"></i>
+                    </div>
+                    <div class="year">{{ event.year }}</div>
+                    <div class="title">{{ event.title }}</div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        {{ event.location }}
+                    </div>
+                    <div class="description">
+                        {{ event.description }}
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
