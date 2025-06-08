@@ -99,4 +99,39 @@ export const scrollAnimations = [
     ),
     transition('hidden => visible', [animate('0.5s ease-out')]),
   ]),
+
+  trigger('mainPageText', [
+    state(
+      'hidden',
+      style({
+        transform: 'translate(-50%, -100%)' /* Start far above */,
+        opacity: 0,
+      })
+    ),
+    state(
+      'visible',
+      style({
+        transform: 'translate(-50%, -50%)' /* Move to center */,
+        opacity: 1,
+      })
+    ),
+    transition('hidden => visible', [animate('1000ms ease-out')]),
+  ]),
+  trigger('downloadPdfUp', [
+    state(
+      'hidden',
+      style({
+        transform: 'translate(-50%, 800%)' /* Start way below */,
+        opacity: 0,
+      })
+    ),
+    state(
+      'visible',
+      style({
+        transform: 'translate(-50%, 450%)' /* End at Orina Pos */,
+        opacity: 1,
+      })
+    ),
+    transition('hidden => visible', [animate('800ms ease-out')]),
+  ]),
 ];

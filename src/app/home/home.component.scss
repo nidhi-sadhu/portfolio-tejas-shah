@@ -479,3 +479,18 @@ body {
         letter-spacing: 2px;
     }
 }
+
+.section {
+    min-height: 100vh;
+    padding: 2rem 0;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid #eee;
+    }
+}
+
+.section-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

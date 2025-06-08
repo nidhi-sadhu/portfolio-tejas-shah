@@ -8,26 +8,15 @@ import {
   OnInit,
   PLATFORM_ID,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { SkillsComponent } from './skills/skills.component';
-import { CvComponent } from './cv/cv.component';
 import { scrollAnimations } from './shared/animations';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    AboutComponent,
-    SkillsComponent,
-    CvComponent,
-  ],
+  imports: [HeaderComponent, FooterComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: scrollAnimations,
