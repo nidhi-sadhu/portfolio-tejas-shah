@@ -140,7 +140,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onNavigate(section: string) {
     this.currentSection = section;
-    this.updateURL(section);
+    // this.updateURL(section);
     this.scrollToSection(section);
   }
 

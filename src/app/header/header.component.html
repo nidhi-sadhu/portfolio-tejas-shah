@@ -1,5 +1,5 @@
 <header class="header">
-  <div routerLink="/" class="logo-container" (click)="onNavigate('home', $event)">
+  <div class="logo-container" (click)="onNavigate('home', $event)">
     <img src="assets/images/port-folio-logo.svg" alt="Logo" class="logo-image">
   </div>
   <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle Menu">
@@ -12,7 +12,7 @@
   <nav class="nav" [class.open]="isMenuOpen">
     <ul>
       @for (link of navLinks; track link) {
-      <li><a [routerLink]="link.path" routerLinkActive="active" (click)="onNavigate(link.path, $event)"
+      <li><a href="#section-{{link.path}}" routerLinkActive="active" (click)="onNavigate(link.path, $event)"
           [class.active]="currentSection() === link.path">{{ link.label }}</a></li>
       }
     </ul>
