@@ -7,6 +7,7 @@ import { EventItem } from '../../../app.interface';
   imports: [TableListComponent],
   templateUrl: './awards.component.html',
   styleUrl: './awards.component.scss',
+  standalone: true,
 })
 export class AwardsComponent {
   awardEvents: EventItem[] = [

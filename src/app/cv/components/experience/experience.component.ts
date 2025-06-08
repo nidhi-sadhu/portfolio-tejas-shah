@@ -6,6 +6,7 @@ import { ExperienceEvent } from '../../../app.interface';
   imports: [],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss',
+  standalone: true,
 })
 export class ExperienceComponent {
   experienceEvents: ExperienceEvent[] = [

@@ -7,6 +7,7 @@ import { EventItem } from '../../../app.interface';
   imports: [TableListComponent],
   templateUrl: './publication.component.html',
   styleUrl: './publication.component.scss',
+  standalone: true,
 })
 export class PublicationComponent {
   publicationEvents: EventItem[] = [

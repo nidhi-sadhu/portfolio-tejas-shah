@@ -20,6 +20,7 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: scrollAnimations,
+  standalone: true,
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'port-folio';

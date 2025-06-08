@@ -6,6 +6,7 @@ import { PrimeIcons } from 'primeng/api';
   imports: [],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
+  standalone: true,
 })
 export class SkillsComponent {
   skillEvents = [

@@ -31,6 +31,7 @@ import { ToastModule } from 'primeng/toast';
   ],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.scss',
+  standalone: true,
 })
 export class CvComponent {
   protected readonly CvPaths = CvPaths;

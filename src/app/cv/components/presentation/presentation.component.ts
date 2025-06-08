@@ -7,6 +7,7 @@ import { TableListComponent } from '../../shared/components/table-list/table-lis
   imports: [TableListComponent],
   templateUrl: './presentation.component.html',
   styleUrl: './presentation.component.scss',
+  standalone: true,
 })
 export class PresentationComponent {
   presentationEvents: EventItem[] = [

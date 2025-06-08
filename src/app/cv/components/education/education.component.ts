@@ -7,6 +7,7 @@ import { EducationEvent } from '../../../app.interface';
   imports: [],
   templateUrl: './education.component.html',
   styleUrl: './education.component.scss',
+  standalone: true,
 })
 export class EducationComponent {
   educationEvents: EducationEvent[] = [

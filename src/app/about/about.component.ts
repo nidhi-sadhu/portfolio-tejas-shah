@@ -9,6 +9,7 @@ import { PrimeIcons } from 'primeng/api';
   imports: [FieldsetModule, AvatarModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
+  standalone: true,
 })
 export class AboutComponent {
   userDetails: KeyValue<string, string>[] = [

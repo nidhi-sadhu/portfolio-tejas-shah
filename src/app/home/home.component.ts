@@ -27,6 +27,7 @@ import { CvComponent } from '../cv/cv.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   animations: scrollAnimations,
+  standalone: true,
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   isContentVisible: boolean = false;

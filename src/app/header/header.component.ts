@@ -6,6 +6,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  standalone: true,
 })
 export class HeaderComponent {
   homePage: string = 'TEJAS SHAH';
