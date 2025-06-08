@@ -64,9 +64,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isContentVisible = true;
     }, 100);
     if (isPlatformBrowser(this.platformId)) {
-      const path = window.location.pathname.substring(1);
-      if (this.sections.includes(path)) {
-        this.currentSection = path;
+      // Check for fragment instead of pathname
+      const hash = window.location.hash;
+      if (hash.startsWith('#section-')) {
+        const section = hash.replace('#section-', '');
+        if (this.sections.includes(section)) {
+          this.currentSection = section;
+        }
       }
 
       // Listen for navigation events from app component
@@ -140,7 +144,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onNavigate(section: string) {
     this.currentSection = section;
-    // this.updateURL(section);
+    this.updateURL(section);
     this.scrollToSection(section);
   }
 
@@ -161,7 +165,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private updateURL(section: string) {
     if (!isPlatformBrowser(this.platformId)) return;
-    window.history.pushState({}, '', `/${section}`);
+    window.history.pushState({}, '', `#section-${section}`);
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -195,11 +199,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @HostListener('window:popstate', ['$event'])
   onPopState() {
     if (!isPlatformBrowser(this.platformId)) return;
-    // Handle browser back/forward buttons
-    const path = window.location.pathname.substring(1);
-    if (this.sections.includes(path)) {
-      this.currentSection = path;
-      this.scrollToSection(path);
+    // Handle browser back/forward buttons with fragments
+    const hash = window.location.hash;
+    if (hash.startsWith('#section-')) {
+      const section = hash.replace('#section-', '');
+      if (this.sections.includes(section)) {
+        this.currentSection = section;
+        this.scrollToSection(section);
+      }
     }
   }
 
