@@ -29,4 +29,18 @@ export class HeaderComponent {
     event.stopPropagation();
     this.navigate.emit(section);
   }
+
+  scrollToSection(section: string, event?: Event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    // Direct scroll without routing
+    const element = document.getElementById(`section-${section}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.history.pushState({}, '', `#section-${section}`);
+    }
+  }
 }
