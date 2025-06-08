@@ -4,12 +4,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { scrollAnimations } from './shared/animations';
 import { isPlatformBrowser } from '@angular/common';
-import { HomeComponent } from './home/home.component';
-import { TestComponent } from '../test.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, FooterComponent, RouterOutlet, TestComponent],
+  imports: [HeaderComponent, FooterComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: scrollAnimations,
