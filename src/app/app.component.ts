@@ -5,10 +5,11 @@ import { FooterComponent } from './footer/footer.component';
 import { scrollAnimations } from './shared/animations';
 import { isPlatformBrowser } from '@angular/common';
 import { HomeComponent } from './home/home.component';
+import { TestComponent } from '../test.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, FooterComponent, RouterOutlet, HomeComponent],
+  imports: [HeaderComponent, FooterComponent, RouterOutlet, TestComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: scrollAnimations,
@@ -17,20 +18,6 @@ import { HomeComponent } from './home/home.component';
 export class AppComponent implements OnInit {
   currentSection = 'home';
   sections: string[] = ['home', 'about', 'skills', 'cv'];
-  isScrolling: boolean = false;
-
-  // Animation states for each section
-  sectionStates: {
-    home: string;
-    about: string;
-    skills: string;
-    cv: string;
-  } = {
-    home: 'hidden',
-    about: 'hidden',
-    skills: 'hidden',
-    cv: 'hidden',
-  };
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
