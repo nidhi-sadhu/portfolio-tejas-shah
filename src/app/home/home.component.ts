@@ -143,9 +143,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onNavigate(section: string) {
+    console.log('Navigation clicked:', section); // Add this
     this.currentSection = section;
     this.updateURL(section);
     this.scrollToSection(section);
+    console.log('Current section set to:', this.currentSection); // Add this
   }
 
   private scrollToSection(section: string, smooth: boolean = true) {
