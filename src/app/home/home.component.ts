@@ -4,6 +4,7 @@ import {
   ElementRef,
   HostListener,
   Inject,
+  OnDestroy,
   OnInit,
   PLATFORM_ID,
 } from '@angular/core';
@@ -29,7 +30,7 @@ import { CvComponent } from '../cv/cv.component';
   animations: scrollAnimations,
   standalone: true,
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   isContentVisible: boolean = false;
 
   // Animation states for each section
@@ -51,6 +52,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   private observer!: IntersectionObserver;
 
+  private handleNavigationEvent?: (event: any) => void;
+
   constructor(
     private elementRef: ElementRef,
     @Inject(PLATFORM_ID) private platformId: Object
@@ -65,6 +68,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if (this.sections.includes(path)) {
         this.currentSection = path;
       }
+
+      // Listen for navigation events from app component
+      this.handleNavigationEvent = (event: any) => {
+        const section = event.detail.section;
+        this.onNavigate(section);
+      };
+
+      window.addEventListener(
+        'navigate-to-section',
+        this.handleNavigationEvent
+      );
     }
   }
 
@@ -193,6 +207,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // Clean up observer
     if (this.observer) {
       this.observer.disconnect();
+    }
+
+    // Clean up event listener (only in browser)
+    if (isPlatformBrowser(this.platformId) && this.handleNavigationEvent) {
+      window.removeEventListener(
+        'navigate-to-section',
+        this.handleNavigationEvent
+      );
     }
   }
 
