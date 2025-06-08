@@ -31,11 +31,14 @@ export class AppComponent implements OnInit {
   onNavigate(section: string) {
     this.currentSection = section;
     if (isPlatformBrowser(this.platformId)) {
-      window.dispatchEvent(
-        new CustomEvent('navigate-to-section', {
-          detail: { section },
-        })
-      );
+      // Don't dispatch custom event, just update URL
+      window.history.pushState({}, '', `#section-${section}`);
+
+      // Direct scroll
+      const element = document.getElementById(`section-${section}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   }
 }

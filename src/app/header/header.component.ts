@@ -1,9 +1,8 @@
 import { Component, input, output } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   standalone: true,
@@ -27,6 +26,7 @@ export class HeaderComponent {
 
   onNavigate(section: string, event: Event) {
     event.preventDefault();
+    event.stopPropagation();
     this.navigate.emit(section);
   }
 }
