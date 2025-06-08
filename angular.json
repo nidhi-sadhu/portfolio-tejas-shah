@@ -27,6 +27,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
+              "src/404.html",
               {
                 "glob": "**/*",
                 "input": "src/assets",
@@ -95,6 +96,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
+              "src/404.html",
               {
                 "glob": "**/*",
                 "input": "public"

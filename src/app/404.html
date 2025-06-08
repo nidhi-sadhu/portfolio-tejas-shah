@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        var pathPrefix = '/portfolio-tejas-shah';
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+            history.replaceState(null, null, redirect);
+        } else {
+            // Redirect to home page
+            window.location.replace(pathPrefix + '/');
+        }
+    </script>
+</head>
+
+<body></body>
+
+</html>
