@@ -57,7 +57,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private elementRef: ElementRef,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) {
+    console.log('HomeComponent constructor called');
+    if (isPlatformBrowser(this.platformId)) {
+      console.log('Browser platform detected');
+    }
+  }
+
+  testClick() {
+    console.log('Test click works!');
+    alert('Click events working!');
+  }
 
   ngOnInit() {
     setTimeout(() => {

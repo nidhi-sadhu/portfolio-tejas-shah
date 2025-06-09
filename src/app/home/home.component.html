@@ -20,7 +20,9 @@
 </section>
 
 <section id="section-about" class="section" [class.active]="currentSection === 'about'">
-    <about />
+    <button (click)="testClick()" style=" background: red; color: white;">TEST
+        CLICK</button>
+    <!-- <about /> -->
 </section>
 
 <section id="section-skills" class="section" [class.active]="currentSection === 'skills'">

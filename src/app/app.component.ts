@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
   }
 
   onNavigate(section: string) {
+    console.log('App navigation called:', section);
     this.currentSection = section;
     if (isPlatformBrowser(this.platformId)) {
       // Don't dispatch custom event, just update URL
@@ -36,8 +37,11 @@ export class AppComponent implements OnInit {
 
       // Direct scroll
       const element = document.getElementById(`section-${section}`);
+      console.log('Element found, scrolling to:', element);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        console.log('Element NOT found for section:', section);
       }
     }
   }
