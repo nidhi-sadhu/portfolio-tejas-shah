@@ -15,6 +15,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { SkillsComponent } from '../skills/skills.component';
 import { AboutComponent } from '../about/about.component';
 import { CvComponent } from '../cv/cv.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'home',
@@ -24,10 +25,11 @@ import { CvComponent } from '../cv/cv.component';
     AboutComponent,
     SkillsComponent,
     CvComponent,
+    HeaderComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  //animations: scrollAnimations,
+  animations: scrollAnimations,
   standalone: true,
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -52,47 +54,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private observer!: IntersectionObserver;
 
-  private handleNavigationEvent?: (event: any) => void;
+  private scrollTimeout?: number;
 
   constructor(
     private elementRef: ElementRef,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {
-    console.log('HomeComponent constructor called');
-    if (isPlatformBrowser(this.platformId)) {
-      console.log('Browser platform detected');
-    }
-  }
-
-  testClick() {
-    console.log('Test click works!');
-    alert('Click events working!');
-  }
+  ) {}
 
   ngOnInit() {
     setTimeout(() => {
       this.isContentVisible = true;
     }, 100);
     if (isPlatformBrowser(this.platformId)) {
-      // Check for fragment instead of pathname
-      const hash = window.location.hash;
-      if (hash.startsWith('#section-')) {
-        const section = hash.replace('#section-', '');
-        if (this.sections.includes(section)) {
-          this.currentSection = section;
-        }
+      const path = window.location.pathname.substring(1);
+      if (this.sections.includes(path)) {
+        this.currentSection = path;
       }
-
-      // Listen for navigation events from app component
-      this.handleNavigationEvent = (event: any) => {
-        const section = event.detail.section;
-        this.onNavigate(section);
-      };
-
-      window.addEventListener(
-        'navigate-to-section',
-        this.handleNavigationEvent
-      );
     }
   }
 
@@ -129,7 +106,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
           this.currentSection = sectionId;
           // Trigger animation
           // Loop through all sections and set visibility
-          Object.keys(this.sectionStates).forEach((key) => {
+          Object.keys(this.sectionStates).forEach((key: string) => {
             if (key === this.currentSection) {
               this.sectionStates[key as keyof typeof this.sectionStates] =
                 'visible';
@@ -152,14 +129,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }, 100);
   }
 
-  onNavigate(section: string) {
-    console.log('Navigation clicked:', section); // Add this
-    this.currentSection = section;
-    this.updateURL(section);
-    this.scrollToSection(section);
-    console.log('Current section set to:', this.currentSection); // Add this
-  }
-
   private scrollToSection(section: string, smooth: boolean = true) {
     if (!isPlatformBrowser(this.platformId)) return;
     const element = document.getElementById(`section-${section}`);
@@ -175,72 +144,74 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  private updateURL(section: string) {
-    if (!isPlatformBrowser(this.platformId)) return;
-    window.history.pushState({}, '', `#section-${section}`);
-  }
-
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     if (!isPlatformBrowser(this.platformId)) return;
     if (this.isScrolling) return; // Don't detect during programmatic scroll
 
-    const scrollPosition = window.pageYOffset + 100; // Offset for header
-    let currentSection = 'home';
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
 
-    // Check which section is currently in view
-    for (const section of this.sections) {
-      const element = document.getElementById(`section-${section}`);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const elementTop = rect.top + window.pageYOffset;
+    this.scrollTimeout = setTimeout(() => {
+      const scrollPosition = window.pageYOffset + 100;
+      let currentSection = 'home';
+      for (const section of this.sections) {
+        const element = document.getElementById(`section-${section}`);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + window.pageYOffset;
 
-        if (scrollPosition >= elementTop) {
-          currentSection = section;
+          if (scrollPosition >= elementTop) {
+            currentSection = section;
+          }
         }
       }
-    }
-
-    // Update current section and URL if changed
-    if (currentSection !== this.currentSection) {
-      this.currentSection = currentSection;
-      this.updateURL(currentSection);
-    }
+      if (currentSection !== this.currentSection) {
+        this.currentSection = currentSection;
+      }
+    }, 5) as unknown as number;
   }
 
   @HostListener('window:popstate', ['$event'])
   onPopState() {
     if (!isPlatformBrowser(this.platformId)) return;
-    // Handle browser back/forward buttons with fragments
-    const hash = window.location.hash;
-    if (hash.startsWith('#section-')) {
-      const section = hash.replace('#section-', '');
-      if (this.sections.includes(section)) {
-        this.currentSection = section;
-        this.scrollToSection(section);
-      }
+    // Handle browser back/forward buttons
+    const path = window.location.pathname.substring(1);
+    console.log(window.location.pathname);
+    if (this.sections.includes(path)) {
+      this.currentSection = path;
+      this.scrollToSection(path);
     }
   }
 
   ngOnDestroy() {
-    // Clean up observer
     if (this.observer) {
       this.observer.disconnect();
     }
 
-    // Clean up event listener (only in browser)
-    if (isPlatformBrowser(this.platformId) && this.handleNavigationEvent) {
-      window.removeEventListener(
-        'navigate-to-section',
-        this.handleNavigationEvent
-      );
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
     }
   }
 
   downloadResume() {
+    if (!isPlatformBrowser(this.platformId)) return;
     const link = document.createElement('a');
     link.href = 'assets/files/Tejas_Resume.pdf';
     link.download = 'Tejas_Shah_Resume.pdf';
     link.click();
+  }
+
+  onNavigate(section: string) {
+    this.currentSection = section;
+    if (isPlatformBrowser(this.platformId)) {
+      window.history.pushState({}, '', `${section}`);
+      const element = document.getElementById(`section-${section}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+      }
+    }
   }
 }

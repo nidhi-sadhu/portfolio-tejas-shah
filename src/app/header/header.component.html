@@ -10,19 +10,11 @@
     </span>
   </button>
   <nav class="nav" [class.open]="isMenuOpen">
-    <!-- <ul>
+    <ul>
       @for (link of navLinks; track link) {
       <li><a href="#section-{{link.path}}" routerLinkActive="active" (click)="onNavigate(link.path, $event)"
           [class.active]="currentSection() === link.path">{{ link.label }}</a></li>
       }
-    </ul> -->
-    <ul>
-      <li><a href="#section-about" (click)="scrollToSection('about', $event)"
-          [class.active]="currentSection() === 'about'">ABOUT</a></li>
-      <li><a href="#section-skills" (click)="scrollToSection('skills', $event)"
-          [class.active]="currentSection() === 'skills'">SKILLS</a></li>
-      <li><a href="#section-cv" (click)="scrollToSection('cv', $event)"
-          [class.active]="currentSection() === 'cv'">CV</a></li>
     </ul>
   </nav>
 </header>
