@@ -1,8 +1,15 @@
-import { Component, input, output } from '@angular/core';
+import {
+  Component,
+  input,
+  InputSignal,
+  output,
+  OutputEmitterRef,
+} from '@angular/core';
+import { RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   standalone: true,
@@ -17,8 +24,8 @@ export class HeaderComponent {
 
   isMenuOpen = false;
 
-  currentSection = input<string>('home');
-  navigate = output<string>();
+  currentSection: InputSignal<string> = input<string>('home');
+  navigate: OutputEmitterRef<string> = output<string>();
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;

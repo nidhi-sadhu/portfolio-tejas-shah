@@ -1,10 +1,13 @@
-<section id="section-home" class="section" [class.active]="currentSection === 'home'">
+<div class="app-header">
+    <app-header [currentSection]="currentSection" (navigate)="onNavigate($event)" />
+</div>
+<section id="section-home" class="section" [class.active]="currentSection === 'home'" [@fadeIn]="sectionStates.home">
     <div class="image-container">
         <div class="orbital-ring"></div>
         <div class="orbital-ring"></div>
         <div class="orbital-ring"></div>
         <div class="quantum-particle"></div>
-        <div class="text-overlay">
+        <div class="text-overlay" [@mainPageText]="isContentVisible ? 'visible' : 'hidden'">
             <div></div>
             <div class="user-name">HI! I AM </div>
             <div class="user-name-one"> Tejas Shah</div>
@@ -12,23 +15,23 @@
                 I'm a Computational Chemist
             </div>
         </div>
-        <div class="download-pdf">
-            <p-button class="pt-5" label="Info" severity="secondary" [raised]="true" label="Download Resume"
+        <div class="download-pdf" [@downloadPdfUp]="isContentVisible ? 'visible' : 'hidden'">
+            <p-button class="pt-5" severity="secondary" [raised]="true" label="Download Resume"
                 (click)="downloadResume()"></p-button>
         </div>
     </div>
 </section>
 
-<section id="section-about" class="section" [class.active]="currentSection === 'about'">
-    <button (click)="testClick()" style=" background: red; color: white;">TEST
-        CLICK</button>
-    <!-- <about /> -->
+<section id="section-about" class="section" [class.active]="currentSection === 'about'"
+    [@slideInLeft]="sectionStates.about">
+    <about />
 </section>
 
-<section id="section-skills" class="section" [class.active]="currentSection === 'skills'">
+<section id="section-skills" class="section" [class.active]="currentSection === 'skills'"
+    [@slideInLeft]="sectionStates.skills">
     <skills />
 </section>
 
-<section id="section-cv" class="section" [class.active]="currentSection === 'cv'">
+<section id="section-cv" class="section" [class.active]="currentSection === 'cv'" [@slideInLeft]="sectionStates.cv">
     <cv />
 </section>
