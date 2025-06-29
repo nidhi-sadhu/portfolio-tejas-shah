@@ -15,7 +15,7 @@ export class EducationComponent {
       title:
         'Doctor of Philosophy (Ph.D.), Computational and Organic Chemistry',
       schoolName: 'The University of Texas at Dallas',
-      year: 'Aug 2019 - Jun 2025 (Expected)',
+      year: 'Aug 2019 - July 2025',
       advisor: 'Dr. Mihaela C. Stefan, Co-advisor: Dr. Hedieh Torabifard',
       researchInterest: 'test',
       icon: PrimeIcons.LINKEDIN,

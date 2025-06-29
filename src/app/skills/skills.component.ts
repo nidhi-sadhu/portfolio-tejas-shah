@@ -43,11 +43,11 @@ SciKit learn, GNUPLOT, MDTraj, MDAnalysis, knowledge of PyTorch, TensorFlow pack
         {
           skillType: 'Spectroscopic Techniques:',
           skillValues:
-            'NMR, UV-Vis, FT-IT, ATR-IR, MS, and Fluorescence Spectroscopy',
+            'NMR, UV-Vis, FT-IT, ATR-IR, MS, Fluorescence Spectroscopy',
         },
         {
           skillType: 'Chromatography Techniques:',
-          skillValues: 'Column chromatography, HPLC, GC and SEC',
+          skillValues: 'Column chromatography, HPLC, GC, SEC',
         },
         {
           skillType: 'Microscopy Techniques:',
