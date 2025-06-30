@@ -38,7 +38,7 @@ SciKit learn, GNUPLOT, MDTraj, MDAnalysis, knowledge of PyTorch, TensorFlow pack
       skills: [
         {
           skillType: 'Advance Materials Characterization:',
-          skillValues: 'DSC, TGA, and DLS',
+          skillValues: 'DSC, TGA, DLS',
         },
         {
           skillType: 'Spectroscopic Techniques:',
