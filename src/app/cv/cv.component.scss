@@ -3,7 +3,7 @@
         display: flex;
         justify-content: center;
         gap: 50px;
-        padding: 30px;
+        padding: 10px;
         align-items: center;
         max-width: 1100px;
         margin: auto;
@@ -42,13 +42,10 @@
 @media (max-width: 1055px) {
     :host ::ng-deep .p-steps {
         width: 95%;
-        /* Increase width on mobile */
-        padding-top: 30px;
-        /* Reduce top padding */
+        padding-top: 50px !important;
 
         .p-steps-item {
             min-width: 0;
-            /* Allow items to shrink */
         }
 
         .p-steps-title {
@@ -80,7 +77,6 @@
 @media (max-width: 480px) {
     :host ::ng-deep .p-steps {
         width: 98%;
-        /* Almost full width on very small screens */
         padding-top: 20px;
 
         .p-steps-title {
@@ -90,7 +86,6 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             max-width: 60px;
-            /* Truncate long labels */
         }
 
         .p-steps-number {

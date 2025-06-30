@@ -35,6 +35,7 @@ export class HeaderComponent {
     event.preventDefault();
     event.stopPropagation();
     this.navigate.emit(section);
+    this.isMenuOpen = false;
   }
 
   scrollToSection(section: string, event?: Event) {
