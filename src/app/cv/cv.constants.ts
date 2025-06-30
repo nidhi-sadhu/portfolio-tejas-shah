@@ -2,6 +2,6 @@ export enum CvPaths {
   Education = '/education',
   Experience = '/experience',
   Award = '/awards',
-  Publication = '/publication',
+  Skills = '/skills',
   Presentation = '/presentation',
 }

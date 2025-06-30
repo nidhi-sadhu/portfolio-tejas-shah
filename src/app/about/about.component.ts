@@ -12,11 +12,6 @@ import { PrimeIcons } from 'primeng/api';
   standalone: true,
 })
 export class AboutComponent {
-  userDetails: KeyValue<string, string>[] = [
-    { key: 'Email', value: 't.shah002@gmail.com' },
-    { key: 'LinkedIn', value: 'linkedin.com/in/tejas-shah02' },
-  ];
-
   socialIcons: KeyValue<string, string>[] = [
     {
       key: PrimeIcons.LINKEDIN,
@@ -27,6 +22,10 @@ export class AboutComponent {
       key: PrimeIcons.TWITTER,
       value: 'https://www.linkedin.com/in/tejas-shah02/',
     },
+    { 
+      key:'fa-brands fa-google-scholar',
+      value: 'https://scholar.google.com/citations?user=f5-82KUAAAAJ&hl=en'
+    }
   ];
 
   onSocialIcon(link: string) {

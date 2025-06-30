@@ -16,8 +16,8 @@
             </div>
         </div>
         <div class="download-pdf" [@downloadPdfUp]="isContentVisible ? 'visible' : 'hidden'">
-            <p-button class="pt-5" severity="secondary" [raised]="true" label="Download Resume"
-                (click)="downloadResume()"></p-button>
+            <p-button class="pt-5" severity="secondary" [raised]="true" label="Download CV"
+                (click)="downloadCV()"></p-button>
         </div>
     </div>
 </section>
@@ -27,9 +27,9 @@
     <about />
 </section>
 
-<section id="section-skills" class="section" [class.active]="currentSection === 'skills'"
-    [@slideInLeft]="sectionStates.skills">
-    <skills />
+<section id="section-publications" class="section" [class.active]="currentSection === 'publications'"
+    [@slideInLeft]="sectionStates.publications">
+    <app-publication />
 </section>
 
 <section id="section-cv" class="section" [class.active]="currentSection === 'cv'" [@slideInLeft]="sectionStates.cv">

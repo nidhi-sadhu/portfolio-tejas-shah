@@ -12,8 +12,9 @@ import { TableListComponent } from '../../shared/components/table-list/table-lis
 export class PresentationComponent {
   presentationEvents: EventItem[] = [
     {
-      title: `<b>Shah, T.</b>, Torabifard, H., Investigating trans-histone pathway of H3K36 methylation by histone-Nmethyltransferase
-from Molecular Dynamics Simulations. (Under Preparation).`,
+      title: `Shah, T., Polara, H., Bhadran, A., Babanyinah, G., Wang, H., Gerik, G., Biewer, M. C., Torabifard, H.,
+      Stefan, M. C., Contributed poster at The American Chemical Society national meeting, San Diego, CA. Mar
+      22-27, 2025. (Sci-Mix, POLY Outstanding Poster Award)`,
       link: '',
     },
     {

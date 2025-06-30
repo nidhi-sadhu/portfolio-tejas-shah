@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TableListComponent } from '../../shared/components/table-list/table-list.component';
-import { EventItem } from '../../../app.interface';
+import { TableListComponent } from '../cv/shared/components/table-list/table-list.component';
+import { EventItem } from '../app.interface';
 
 @Component({
   selector: 'app-publication',
@@ -11,22 +11,22 @@ import { EventItem } from '../../../app.interface';
 })
 export class PublicationComponent {
   publicationEvents: EventItem[] = [
-    {
-      title: `<b>Shah, T.</b>, Torabifard, H., Investigating trans-histone pathway of H3K36 methylation by histone-Nmethyltransferase
-from Molecular Dynamics Simulations. (Under Preparation)`,
-      year: '-',
-      link: '',
-    },
+//     {
+//       title: `<b>Shah, T.</b>, Torabifard, H., Investigating trans-histone pathway of H3K36 methylation by histone-Nmethyltransferase
+// from Molecular Dynamics Simulations. (Under Preparation)`,
+//       year: '-',
+//       link: '',
+//     },
     {
       title: `Polara, H., <b>Shah, T.</b>, Babanyinah, G., Wang, H., Bhadran, A., Biewer, M. C., Torabifard, H., Stefan,
 M. C., Effect of amide disubstituted caprolactones hydrophobic functional groups on doxorubicin loading
-capacity and its release. Biomacromolecules, 2025. (Submitted)`,
+capacity and its release. Biomacromolecules, 2025.`,
       year: '2025',
       link: '',
     },
     {
-      title: `Babanyinah, G., Bhadran, A., Polara, H., <b>Shah, T.</b>, Biewer, M. C., Stefan, M. C., Fluorescent Poly(ε-
-Caprolactone)s Micelles for Anticancer Drug Delivery and Bioimaging. Biomacromolecules, 2025. (Submitted)`,
+      title: `Babanyinah, G., Bhadran, A., Polara, H., <b>Shah, T.</b>, Biewer, M. C., Stefan, M. C., Fluorescent Poly(εCaprolactone)s Micelles for Anticancer Drug Delivery and Bioimaging, <i>Biomacromolecules</i>, 2025, 26,
+      3213–3223.`,
       year: '2025',
       link: '',
     },

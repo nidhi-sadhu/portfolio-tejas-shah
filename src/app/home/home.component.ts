@@ -12,10 +12,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { ButtonModule } from 'primeng/button';
 import { scrollAnimations } from '../shared/animations';
 import { isPlatformBrowser } from '@angular/common';
-import { SkillsComponent } from '../skills/skills.component';
 import { AboutComponent } from '../about/about.component';
 import { CvComponent } from '../cv/cv.component';
 import { HeaderComponent } from '../header/header.component';
+import { PublicationComponent } from '../publication/publication.component';
 
 @Component({
   selector: 'home',
@@ -23,9 +23,9 @@ import { HeaderComponent } from '../header/header.component';
     MatButtonModule,
     ButtonModule,
     AboutComponent,
-    SkillsComponent,
     CvComponent,
     HeaderComponent,
+    PublicationComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -39,17 +39,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   sectionStates: {
     home: string;
     about: string;
-    skills: string;
+    publications: string;
     cv: string;
   } = {
     home: 'hidden',
     about: 'hidden',
-    skills: 'hidden',
+    publications: 'hidden',
     cv: 'hidden',
   };
   isVisible: boolean = false;
   currentSection: string = 'home';
-  sections: string[] = ['home', 'about', 'skills', 'cv'];
+  sections: string[] = ['home', 'about', 'publications', 'cv'];
   isScrolling = false;
 
   private observer!: IntersectionObserver;
@@ -195,11 +195,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  downloadResume() {
+  downloadCV() {
     if (!isPlatformBrowser(this.platformId)) return;
     const link = document.createElement('a');
-    link.href = 'assets/files/Tejas_Resume.pdf';
-    link.download = 'Tejas_Shah_Resume.pdf';
+    link.href = 'assets/files/Tejas_CV.pdf';
+    link.download = 'Tejas_Shah_CV.pdf';
     link.click();
   }
 

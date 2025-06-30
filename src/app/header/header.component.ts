@@ -18,7 +18,7 @@ export class HeaderComponent {
   homePage: string = 'TEJAS SHAH';
   navLinks: { path: string; label: string }[] = [
     { path: 'about', label: 'ABOUT' },
-    { path: 'skills', label: 'SKILLS' },
+    { path: 'publications', label: 'PUBLICATIONS' },
     { path: 'cv', label: 'CV' },
   ];
 

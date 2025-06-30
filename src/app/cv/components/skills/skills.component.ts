@@ -28,8 +28,8 @@ export class SkillsComponent {
         },
         {
           skillType: 'Programming Languages and Packages:',
-          skillValues: `Bash, Python NumPy, Panda, Matplotlib, Seaborn, SciPy,
-SciKit learn, GNUPLOT, MDTraj, MDAnalysis, knowledge of PyTorch, TensorFlow packages`,
+          skillValues: `Bash, Python, NumPy, Panda, Matplotlib, Seaborn, SciPy,
+SciKit learn, GNUPLOT, MDTraj, MDAnalysis, PyTorch, TensorFlow`,
         },
       ],
     },
@@ -47,7 +47,7 @@ SciKit learn, GNUPLOT, MDTraj, MDAnalysis, knowledge of PyTorch, TensorFlow pack
         },
         {
           skillType: 'Chromatography Techniques:',
-          skillValues: 'Column chromatography, HPLC, GC, SEC',
+          skillValues: 'Column Chromatography, HPLC, GC, SEC',
         },
         {
           skillType: 'Microscopy Techniques:',

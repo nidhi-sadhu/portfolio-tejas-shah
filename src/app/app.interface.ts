@@ -20,5 +20,5 @@ export interface ExperienceEvent {
   type: string;
   location: string;
   year: string;
-  description: string;
+  description?: string;
 }

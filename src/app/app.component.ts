@@ -14,7 +14,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   currentSection = 'home';
-  sections: string[] = ['home', 'about', 'skills', 'cv'];
+  sections: string[] = ['home', 'about', 'publications', 'cv'];
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 

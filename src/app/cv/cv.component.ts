@@ -6,12 +6,12 @@ import { ButtonModule } from 'primeng/button';
 import { AvatarModule } from 'primeng/avatar';
 import { EducationComponent } from './components/education/education.component';
 import { AwardsComponent } from './components/awards/awards.component';
-import { PublicationComponent } from './components/publication/publication.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { CvPaths } from './cv.constants';
 import { StepsModule } from 'primeng/steps';
 import { ToastModule } from 'primeng/toast';
+import { SkillsComponent } from './components/skills/skills.component';
 
 @Component({
   selector: 'cv',
@@ -25,7 +25,7 @@ import { ToastModule } from 'primeng/toast';
     AwardsComponent,
     ExperienceComponent,
     PresentationComponent,
-    PublicationComponent,
+    SkillsComponent,
     StepsModule,
     ToastModule,
   ],
@@ -48,12 +48,12 @@ export class CvComponent {
       command: () => this.setCurrentPath(CvPaths.Experience),
     },
     {
-      label: 'Awards',
-      command: () => this.setCurrentPath(CvPaths.Award),
+      label: 'Skills',
+      command: () => this.setCurrentPath(CvPaths.Skills),
     },
     {
-      label: 'Publications',
-      command: () => this.setCurrentPath(CvPaths.Publication),
+      label: 'Awards',
+      command: () => this.setCurrentPath(CvPaths.Award),
     },
     {
       label: 'Presentation',
@@ -62,7 +62,7 @@ export class CvComponent {
   ];
 
   constructor() {
-    this.currentPath.set('/education');
+    this.currentPath.set(CvPaths.Education);
   }
 
   setCurrentPath(currentPath: string) {

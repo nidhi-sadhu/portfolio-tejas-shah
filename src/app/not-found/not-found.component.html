@@ -1,14 +1,43 @@
-<div class="not-found-container">
-    <div class="error-content">
-        <div class="minion-image">
-            <img src="assets/images/sad-minion.jpg" alt="Sad Minion">
-        </div>
-        <h1 class="error-code">404</h1>
-        <h2 class="error-title">Ooops! Page Not Found</h2>
-        <p class="error-message">The page you are looking for doesn't exist or has been moved. Even the minions can't
-            find it!</p>
-        <button class="home-button" routerLink="/home">
-            <i class="fa fa-home"></i> Return to Home
-        </button>
+<div class="not-found-container" [@slideInUp]>
+    <div class="stars-background">
+        @for (star of [1,2,3,4,5,6,7,8,9,10]; track $index) {
+        <div class="star"></div>
+        }
+
     </div>
-</div>
+  
+    <div class="error-content" [@bounce]>
+      <!-- Minion Image -->
+      <div class="minion-container" 
+           (click)="shakeMinion()" 
+           [@shake]="isShaking ? 'shaking' : 'normal'">
+        <img src="/assets/images/sad-minion.png" 
+             alt="Sad Minion" 
+             class="minion-image"
+             loading="lazy">
+      </div>
+  
+      <!-- Error Information -->
+      <div class="error-info">
+        <h1 class="error-code">
+          <span class="digit">4</span>
+          <span class="digit zero">0</span>
+          <span class="digit">4</span>
+        </h1>
+        
+        <h2 class="error-title">Page Not Found</h2>
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="btn btn-primary" (click)="navigateHome()">
+            <i class="fas fa-home"></i>
+            Go Home
+          </button>
+          <button class="btn btn-outline" (click)="refreshPage()">
+            <i class="fas fa-redo"></i>
+            Refresh
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
